@@ -1,38 +1,64 @@
 .App {
   text-align: center;
+  display: grid;
+  place-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.table {
+  width: 878px;
+  padding-top: 50px;
+  display: block;
+  margin-top: 10rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+input {
+  color: navy;
+  width: 30%;
+  height: 25px;
+  margin-bottom: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.th {
+  width: 100%;
+  height: 26px;
+  font-weight: bold;
+  padding-top: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.viewPort {
+  position: relative;
+  width: 878px;
+  overflow-y: scroll;
+  border: solid 1px lightgray;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dataContainer {
+  position: absolute;
+  width: 878px;
 }
+
+.row {
+  position: absolute;
+  background-color: beige;
+  width: 878px;
+  text-align:center;
+}
+
+.column {
+  float:left;
+  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
+  position: relative;
+  padding-top: 1.5px;
+}
+
+.column:nth-child(1){
+  float:left;
+  width: 170px;
+  min-width: 170px;
+  max-width: 170px;
+}
+
+
+

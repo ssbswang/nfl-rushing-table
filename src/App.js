@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { TableComponent } from './components/Table';
+import useFetch from "./utils/api";
 
-function App() {
+export default function App() {
+
+  const { data, loading, error } = useFetch(process.env.REACT_APP_.ENDPOINT_STAT);
+
+  if (loading) {
+    return (
+        <div className="status">
+          Loading application ...
+        </div>
+    );
+  }
+  if (error) {
+    return (
+        <div className="status">
+          Something went wrong :(
+        </div>
+    );
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <TableComponent data={data} itemHeight={25} viewPortHeight={250}/>
+      </div>
   );
 }
-
-export default App;
