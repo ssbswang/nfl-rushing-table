@@ -48,8 +48,6 @@ export const TableComponent = (props) => {
   useEffect(() => {
     setEndIndex(viewData.length >= numVisibleItems ? startIndex + numVisibleItems : viewData.length);
     setViewPortHeight({height: viewData.length * props.itemHeight});
-    console.log("start: "+startIndex);
-    console.log("end: "+(viewData.length >= numVisibleItems ? startIndex + numVisibleItems : viewData.length))
   }, [viewData, numVisibleItems]);
 
   // re-render rows if any of view properties has been updated
@@ -178,7 +176,6 @@ function renderRows(props) {
   let result = [];
   if (props.end > 0 && props.end < props.viewData.length) {
     for (let i=props.start;i<=props.end;i++){
-      console.log("render "+props.end+" rows");
       let item=props.viewData[i];
       result.push(<Row key={i}
                        value={item}
