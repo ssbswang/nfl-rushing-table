@@ -55,7 +55,7 @@ export const TableComponent = (props) => {
     setRows(renderRows({
       viewData: viewData,
       start: startIndex,
-      end: viewData.length >= numVisibleItems ? endIndex : (endIndex > 0 ? 3 : 0),
+      end: viewData.length >= numVisibleItems ? endIndex : (endIndex > 0 ? endIndex-1 : -1),
       itemHeight: props.itemHeight}));
   }, [startIndex, endIndex, sort, viewData, searchTerm, route])
 
@@ -174,13 +174,20 @@ export const TableComponent = (props) => {
  */
 function renderRows(props) {
   let result = [];
-  if (props.end > 0 && props.end < props.viewData.length) {
-    for (let i=props.start;i<=props.end;i++){
-      let item=props.viewData[i];
-      result.push(<Row key={i}
-                       value={item}
-                       top={i*props.itemHeight}
+  if (props.end >= 0 && props.end < props.viewData.length) {
+    if (props.end === 0) {
+      result.push(<Row key={"0"}
+                       value={props.viewData[0]}
+                       top={0}
                        itemHeight={props.itemHeight}/>);
+    } else {
+      for (let i=props.start;i<=props.end;i++){
+        let item=props.viewData[i];
+        result.push(<Row key={i}
+                         value={item}
+                         top={i*props.itemHeight}
+                         itemHeight={props.itemHeight}/>);
+      }
     }
   }
   return result;
