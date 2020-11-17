@@ -1,7 +1,12 @@
-.App {
+.App, .status {
   text-align: center;
   display: grid;
   place-items: center;
+}
+
+.status {
+  margin-top: 17rem;
+  font-size: 20px;
 }
 
 .table {
