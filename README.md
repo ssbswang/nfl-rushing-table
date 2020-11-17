@@ -57,3 +57,5 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 1. docker-compose up -d --build
 2. go to http://localhost:3000
+
+For design decisions and documentation, please see the docs in the source files
