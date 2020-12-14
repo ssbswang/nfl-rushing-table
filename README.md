@@ -1,4 +1,5 @@
-##### Overview
+## Custom Virtual DOM Table
+### Overview
 This is a custom table implemented using virtual DOM to dynamically load the data based on scrolling positions.
 Features
 - sort on columns that use numerical data
